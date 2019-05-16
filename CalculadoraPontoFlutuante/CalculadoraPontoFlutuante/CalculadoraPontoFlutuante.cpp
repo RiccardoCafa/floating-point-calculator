@@ -9,9 +9,9 @@
 int main()
 {
 	Calculadora calc;
-	short bina[4];
-	calc.decimal_para_binario(14, 4, bina);
-	for (int i = 0; i < 4; i++) {
+	short bina[5];
+	calc.dec_to_bin(29, 5, bina);
+	for (int i = 0; i < 5; i++) {
 		std::cout << bina[i];
 	}
 	std::cout << std::endl;
@@ -21,4 +21,7 @@ int main()
 		std::cout << as[j];
 	}
 	std::cout << std::endl;
+	calc.float_notation(1.3, 8, 3);
+	calc.float_notation(34.76, 32, 8);
+	calc.float_notation(782.38573, 64, 11);
 }
