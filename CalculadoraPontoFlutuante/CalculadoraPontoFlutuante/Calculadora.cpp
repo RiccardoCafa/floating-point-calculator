@@ -10,12 +10,7 @@ void Calculadora::decimal_para_binario(long decimal, int tamanhoBits, short bina
 
 	do {
 		if (n != 0) {
-			if (n & 1) {
-				bina[tamanhoBits - 1 - count] = 1;
-			}
-			else {
-				bina[tamanhoBits - 1 - count] = 0;
-			}
+			bina[tamanhoBits - 1 - count] = n & 1;
 			n >>= 1;
 		}
 		else {
@@ -32,18 +27,20 @@ std::vector<char> Calculadora::convert_binario_hexa(short bina[], int Tamanho)
 	int count = 0;
 	int aux[4];
 	int calc = 0;
-	for (i = Tamanho; i > 0; i--) {
+	for (i = Tamanho-1; i >= 0; i--) {
 		aux[count] = bina[i];
-		if (i == 0 && count < 3) {
+		if (i == 0) {
 			do {
-				aux[count + 1] = 0;
-			} while (count == 3);
+				count++;
+				aux[count] = 0;
+			} while (count < 3);
 		}
-		if (count == 3) {
-			calc += 8 * aux[0];
-			calc += 4 * aux[1];
-			calc += 2 * aux[2];
-			calc += 1 * aux[3];
+		if (count == 3 || i == 0) {
+			calc += 8 * aux[3];
+			calc += 4 * aux[2];
+			calc += 2 * aux[1];
+			calc += 1 * aux[0];
+			std::cout << "calc : " << calc << std::endl;
 			if (calc > 9) {
 				hexa.push_back(calc + 55);
 				calc = 0;
@@ -54,6 +51,7 @@ std::vector<char> Calculadora::convert_binario_hexa(short bina[], int Tamanho)
 			}
 			count = 0;
 		}
+		
 		count++;
 	}
 	return hexa;
