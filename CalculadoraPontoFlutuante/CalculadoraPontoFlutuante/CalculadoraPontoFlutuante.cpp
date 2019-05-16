@@ -21,7 +21,7 @@ int main()
 		std::cout << as[j];
 	}
 	std::cout << std::endl;
-	calc.float_notation(1.3, 8, 3);
+	calc.float_notation(3, 8, 3);
 	calc.float_notation(34.76, 32, 8);
 	calc.float_notation(782.38573, 64, 11);
 }

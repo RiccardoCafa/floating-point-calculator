@@ -90,17 +90,19 @@ short* Calculadora::float_notation(long double num_dec, int total_buffer, int ex
 	for (int i = 0; i < 1; i++) std::cout << sign_note[i];
 
 	num_dec = num_dec < 0 ? -num_dec : num_dec;
-	std::cout << ".";
+	std::cout << " ";
 
 	//preenchimento da zona exp (expoente)
 	int int_part = num_dec;
 	int zero = pow(2, exp_buffer) / 2 - 1;
 	int i = 0; while (int_part >= pow(2, i)) i++;
 	int exp = i - 1;
-	dec_to_bin(zero + exp, exp_buffer, exp_note);
+	if (num_dec == 0) dec_to_bin(0, exp_buffer, exp_note);
+	else if (exp > zero * 2 + 1) dec_to_bin(zero * 2 + 1, exp_buffer, exp_note);
+	else dec_to_bin(zero + exp, exp_buffer, exp_note);
 	for (int i = 0; i < exp_buffer; i++) std::cout << exp_note[i];
 
-	std::cout << ".";
+	std::cout << " ";
 
 	//preenchimento da zona mant (mantissa)
 	int count = 0;
