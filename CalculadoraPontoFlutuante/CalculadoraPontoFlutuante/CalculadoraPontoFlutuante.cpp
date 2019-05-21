@@ -12,7 +12,7 @@ int main()
 	short bina[64];
 	//long banana = ;
 	long banana = 16;
-	calc.decimal_para_binario(banana, 8, bina);
+	calc.dec_to_bin(banana, 8, bina);
 	for (int i = 0; i < 8; i++) {
 		std::cout << bina[i];
 	}
@@ -23,6 +23,7 @@ int main()
 		std::cout << "0x" << as[j];
 	}
 	std::cout << std::endl;
+	calc.float_notation(3, 8, 3);
+	calc.float_notation(34.76, 32, 8);
+	calc.float_notation(782.38573, 64, 11);
 }
-/*
-*/
