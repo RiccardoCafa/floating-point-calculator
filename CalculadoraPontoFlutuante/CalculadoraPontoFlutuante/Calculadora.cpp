@@ -27,38 +27,37 @@ void Calculadora::dec_to_bin(long decimal, int tamanhoBits, short bina[])
 	} while (count < tamanhoBits);
 }
 
-std::vector<char> Calculadora::convert_binario_hexa(short bina[], int Tamanho)
+char* Calculadora::convert_binario_hexa(short bina[], int Tamanho)
 {
-	std::vector<char> hexa;
+	char* hexa = (char *) calloc(64, sizeof(char));
 	int i = 0;
 	int count = 0;
 	int aux[4];
 	int calc = 0;
-	for (i = Tamanho; i > 0; i--) {
+	std::cout << std::endl << "0x";
+	for (i = 0; i <= Tamanho - 1; i++) {
 		aux[count] = bina[i];
-		if (i == 0 && count < 3) {
-			do {
-				aux[count + 1] = 0;
-			} while (count == 3);
-		}
+		
 		if (count == 3) {
 			calc += 8 * aux[0];
 			calc += 4 * aux[1];
 			calc += 2 * aux[2];
-			calc += 1 * aux[3];
+			calc += aux[3];
 			if (calc > 9) {
-				hexa.push_back(calc + 55);
+				hexa[i] = calc + 55;
+				std::cout << hexa[i];
 				calc = 0;
 			}
 			else {
-				hexa.push_back((char)calc);
+				hexa[i] = 48 + calc;
+				std::cout << hexa[i];
 				calc = 0;
 			}
-			count = 0;
+			count = -1;
 		}
 		count++;
 	}
-	std::reverse(hexa.begin(), hexa.end());
+	std::cout << std::endl;
 	return hexa;
 }
 
@@ -122,8 +121,8 @@ short* Calculadora::float_notation(long double num_dec, int total_buffer, int ex
 	//concatenaçao das 3 zonas
 	for (int i = 0; i < total_buffer; i++) {
 		if (i == 0) float_note[i] = sign_note[0];
-		else if (i < exp_buffer) float_note[i] = exp_note[i - 1];
-		else float_note[i] = mant_note[i - exp_buffer - 1];
+		else if (i <= exp_buffer) float_note[i] = exp_note[i - 1];
+		else float_note[i] = mant_note[i - exp_buffer];
 	}
 	return float_note;
 }

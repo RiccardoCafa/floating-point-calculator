@@ -1,2 +1,5 @@
 ﻿  CalculadoraPontoFlutuante.cpp
+C:\Users\Lucas\OneDrive\Desktop\Eng Computaçao\S3\AOC\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante.cpp(31): warning C4244: 'argumento': conversão de 'long double' para 'long', possível perda de dados
+C:\Users\Lucas\OneDrive\Desktop\Eng Computaçao\S3\AOC\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante.cpp(42): warning C4244: 'argumento': conversão de 'long double' para 'long', possível perda de dados
+C:\Users\Lucas\OneDrive\Desktop\Eng Computaçao\S3\AOC\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante.cpp(58): warning C4101: 'f': variável local não referenciada
   CalculadoraPontoFlutuante.vcxproj -> C:\Users\Lucas\OneDrive\Desktop\Eng Computaçao\S3\AOC\CalculadoraPontoFlutuante\CalculadoraPontoFlutuante\x64\Debug\CalculadoraPontoFlutuante.exe
